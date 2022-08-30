@@ -14,11 +14,12 @@ interface Props{
     closeForm: () => void;
     createOrEditActivity: (activity: Activity) => void;
     deleteActivity: (id: string) => void;
+    submitting: boolean;
 }
 
 function ActivityDashBoard(
     {activities, selectedActivity, selectActivity, cancelActivity,
-        editMode, openForm, closeForm,
+        editMode, openForm, closeForm, submitting,
         createOrEditActivity, deleteActivity}
     :Props) {
     return (
@@ -28,6 +29,7 @@ function ActivityDashBoard(
                     activities={activities}
                     selectActivity={selectActivity}
                     deleteActivity={deleteActivity}
+                    submitting={submitting}
                 />
             </Grid.Column>
             <Grid.Column width='6'>
@@ -43,6 +45,7 @@ function ActivityDashBoard(
                         activity={selectedActivity}
                         closeForm={closeForm}
                         createOrEditActivity={createOrEditActivity}
+                        submitting={submitting}
                     />
                 }
             </Grid.Column>
