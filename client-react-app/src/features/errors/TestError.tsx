@@ -24,7 +24,10 @@ function TestErrors() {
     function handleServerError() {
         setErrors(null)
         axios.get(baseUrl + 'buggy/server-error')
-            .catch(err => console.log(err.response));
+            .catch(err => {
+                setErrors(err.response.data)
+                history.push('/server-error')
+            });
     }
 
     function handleUnauthorized() {

@@ -44,10 +44,8 @@ axios.interceptors.response.use(async response => {
             toast.error('not found');
             break;
         case 500:
-            console.log('data :>> ', data);
             store.commonStore.setServerError(data);
             toast.error('Server Error')
-            // history.push('/server-error');
             break;
     }
     return Promise.reject(error);
